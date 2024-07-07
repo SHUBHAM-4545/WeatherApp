@@ -10,12 +10,6 @@ class WeatherScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Weather Details'),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.refresh),
-            onPressed: () => weatherProvider.refreshWeather(),
-          ),
-        ],
       ),
       body: Stack(
         children: [
@@ -49,9 +43,20 @@ class WeatherScreen extends StatelessWidget {
                     ),
                   ),
           ),
+          Column(
+            children: [
+              Spacer(),
+              Center(
+                child: IconButton(
+                  icon: Icon(Icons.refresh, size: 40, color: Colors.white),
+                  onPressed: () => weatherProvider.refreshWeather(),
+                ),
+              ),
+              SizedBox(height: 16), // Add some space from the bottom
+            ],
+          ),
         ],
       ),
     );
   }
 }
-
